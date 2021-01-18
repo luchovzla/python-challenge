@@ -45,8 +45,6 @@ with open(csv_path) as csvfile:
             candidate_index = candidate_list.index(current_candidate)
             votes_per_candidate[candidate_index] += 1
         
-
-    
     # Calculate total votes
 
     total_votes = sum(votes_per_candidate)
@@ -69,9 +67,12 @@ with open(csv_path) as csvfile:
         f"--------------------------"
     )
 
+    # Print out first chunk of text
+
     print(results_str1)
 
     # Define how many candidates there are 
+    
     total_candidates = len(candidate_list)
 
     # For loop to print each candidate along with their vote
@@ -83,11 +84,22 @@ with open(csv_path) as csvfile:
 
     winner_index = votes_per_candidate.index(max(votes_per_candidate))
 
+    # Store chunk of text after the for loop in a variable
     results_str2 = (
         f"-------------------------\n"
         f"Winner: {candidate_list[winner_index]}"
     )
 
+    # Print out variable
+
     print(results_str2)
 
-    
+    # Do the same in a .txt file
+
+    with open("Output/election_results.txt", "w") as text:
+        print(results_str1, file = text)
+        
+        for i in range(total_candidates):
+            print(f"{candidate_list[i]}: {vote_share_per_candidate[i]}00% ({votes_per_candidate[i]})", file = text)
+
+        print(results_str2, file = text)
