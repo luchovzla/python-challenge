@@ -65,27 +65,36 @@ with open(csv_path) as csvfile:
 
 # Now that we have all of our variables, we can print them out... 
 
-print("Financial Analysis")
-print("----------------------------")
-print(f"Total Months: {total_months}")
-print(f"Total: ${total_revenue}")
-print(f"Average Change: ${avg_revenue}")
-print(f"Greatest Increase in Profits: {max_date} (${max_profit})")
-print(f"Greatest Decrease in Profits: {min_date} (${min_profit})")
+result_str = (
+    f"Financial Analysis\n"
+    f"----------------------------\n" 
+    f"Total Months: {total_months}\n"
+    f"Total: ${total_revenue}\n"
+    f"Average Change: ${avg_revenue}\n"
+    f"Greatest Increase in Profits: {max_date} (${max_profit})\n"
+    f"Greatest Decrease in Profits: {min_date} (${min_profit})"
+)
 
-# ...and store them in a .txt file
+print(result_str)
 
-with open("Output/bank_summary.txt", "w") as text:
-    print("Financial Analysis", file = text)
-    print("----------------------------", file = text)
-    print(f"Total Months: {total_months}", file = text)
-    print(f"Total: ${total_revenue}", file = text)
-    print(f"Average Change: ${avg_revenue}", file = text)
-    print(f"Greatest Increase in Profits: {max_date} (${max_profit})", file = text)
-    print(f"Greatest Decrease in Profits: {min_date} (${min_profit})", file = text)
+with open("Output/bank_summary.txt", "w") as text: 
+    print(result_str, file = text)
+    
+# print("Financial Analysis")
+# print("----------------------------")
+# print(f"Total Months: {total_months}")
+# print(f"Total: ${total_revenue}")
+# print(f"Average Change: ${avg_revenue}")
+# print(f"Greatest Increase in Profits: {max_date} (${max_profit})")
+# print(f"Greatest Decrease in Profits: {min_date} (${min_profit})")
 
+# # ...and store them in a .txt file
 
-        
-
-
-
+# with open("Output/bank_summary.txt", "w") as text:
+#     print("Financial Analysis", file = text)
+#     print("----------------------------", file = text)
+#     print(f"Total Months: {total_months}", file = text)
+#     print(f"Total: ${total_revenue}", file = text)
+#     print(f"Average Change: ${avg_revenue}", file = text)
+#     print(f"Greatest Increase in Profits: {max_date} (${max_profit})", file = text)
+#     print(f"Greatest Decrease in Profits: {min_date} (${min_profit})", file = text)
