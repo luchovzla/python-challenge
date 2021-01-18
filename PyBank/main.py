@@ -79,22 +79,3 @@ print(result_str)
 
 with open("Output/bank_summary.txt", "w") as text: 
     print(result_str, file = text)
-    
-# print("Financial Analysis")
-# print("----------------------------")
-# print(f"Total Months: {total_months}")
-# print(f"Total: ${total_revenue}")
-# print(f"Average Change: ${avg_revenue}")
-# print(f"Greatest Increase in Profits: {max_date} (${max_profit})")
-# print(f"Greatest Decrease in Profits: {min_date} (${min_profit})")
-
-# # ...and store them in a .txt file
-
-# with open("Output/bank_summary.txt", "w") as text:
-#     print("Financial Analysis", file = text)
-#     print("----------------------------", file = text)
-#     print(f"Total Months: {total_months}", file = text)
-#     print(f"Total: ${total_revenue}", file = text)
-#     print(f"Average Change: ${avg_revenue}", file = text)
-#     print(f"Greatest Increase in Profits: {max_date} (${max_profit})", file = text)
-#     print(f"Greatest Decrease in Profits: {min_date} (${min_profit})", file = text)
