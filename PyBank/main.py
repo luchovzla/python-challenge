@@ -63,7 +63,7 @@ with open(csv_path) as csvfile:
 
     avg_revenue = round(total_revenue / total_months, 2)
 
-# Now that we have all of our variables, we can print them out... 
+# Now that we have all of our variables, we can print them out and store them in a .txt file
 
 result_str = (
     f"Financial Analysis\n"
