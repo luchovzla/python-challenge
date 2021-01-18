@@ -29,6 +29,13 @@ with open(csv_path) as csvfile:
     # Skip header row
 
     header_row = next(csvreader)
+    
+    # Initialize change list and comparisons (previous change, max change, min change)
+    
+    previous_profit = 0
+    change_list = []
+    max_change = 0
+    min_change = 0
 
     # For loop to read through the data and collect variables
 
@@ -44,24 +51,31 @@ with open(csv_path) as csvfile:
         total_months += 1
         total_revenue += profit
 
-        # Conditionals to compare datapoints and determine min/max profit and store date/profit in variables
+        # Conditionals to compare datapoints and determine min/max change in profit and store date/profit in variables
 
-        # Max profit
+        # Calculate change in profit starting from the second month 
 
-        if profit > max_profit: 
-            max_date = date
-            max_profit = profit 
+        if total_months > 1:
+            change = profit - previous_profit
+            change_list.append(change)
+                
+                # Max change
+
+            if change > max_change: 
+                max_date = date
+                max_change = change  
         
-        # Min profit
+           # Min change
         
-        elif profit < min_profit:
-            min_date = date
-            min_profit = profit
+            elif change < min_change:
+                min_date = date
+                min_change = change
 
+        previous_profit = profit
 
-    # Calculate average revenue, dividing total revenue by number of entries
+    # Calculate average change, dividing total of changes by number of changes
 
-    avg_revenue = round(total_revenue / total_months, 2)
+    avg_change = round( sum(change_list) / len(change_list), 2)
 
 # Now that we have all of our variables, we can print them out and store them in a .txt file
 
@@ -70,9 +84,9 @@ result_str = (
     f"----------------------------\n" 
     f"Total Months: {total_months}\n"
     f"Total: ${total_revenue}\n"
-    f"Average Change: ${avg_revenue}\n"
-    f"Greatest Increase in Profits: {max_date} (${max_profit})\n"
-    f"Greatest Decrease in Profits: {min_date} (${min_profit})"
+    f"Average Change: ${avg_change}\n"
+    f"Greatest Increase in Profits: {max_date} (${max_change})\n"
+    f"Greatest Decrease in Profits: {min_date} (${min_change})"
 )
 
 print(result_str)
